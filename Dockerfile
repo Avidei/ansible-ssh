@@ -26,11 +26,6 @@ RUN sed -i '/imklog/s/^/#/' /etc/rsyslog.conf && \
 
 RUN chmod 700 /var/run/sshd
 
-
-# Create a group and user (with explicit UID/GID)
-RUN groupadd -r avidei && useradd --no-log-init -r -g avidei avidei
-
-
 # Create user with home directory
 RUN useradd -m -s /bin/bash avidei && \
     echo "avidei:avidei" | chpasswd && \
