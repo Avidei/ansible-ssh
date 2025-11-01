@@ -31,8 +31,10 @@ RUN chmod 700 /var/run/sshd
 RUN groupadd -r avidei && useradd --no-log-init -r -g avidei avidei
 
 
-# Set password for user 
-RUN echo 'avidei:avidei' | chpasswd
+# Create user with home directory
+RUN useradd -m -s /bin/bash avidei && \
+    echo "avidei:avidei" | chpasswd && \
+    usermod -aG sudo avidei
 
 # Allow login with a password
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
