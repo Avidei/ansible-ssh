@@ -12,12 +12,18 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     nano \
-    python3\
-    ansible\
-    openssh-server\
-    openssh-client\
+    python3.13 \
+    python3.13-venv\
+    python3-pip \
+    ansible \
+    sshpass \
+    openssh-server \
+    openssh-client \
     rsyslog
 
+# Make python and pip point to Python 3.13
+RUN ln -sf /usr/bin/python3.13 /usr/bin/python && \
+    ln -sf /usr/bin/pip3 /usr/bin/pip 
 
 # edit sshd_config: comment out the AcceptEnv line
 RUN sed -i 's/^AcceptEnv/#AcceptEnv/' /etc/ssh/sshd_config
