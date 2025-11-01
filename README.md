@@ -19,10 +19,10 @@ The container starts and runs as root
 ```bash
 git clone https://github.com/Avidei/ansible-ssh.git
 cd ansible-ssh
+```
 
-# build
 ```bash
 docker build -t avidei/ansible-ssh:latest . && \
 docker run -d -p 2222:22 --name ansible-ssh avidei/ansible-ssh:latest
-
+```
 
