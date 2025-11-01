@@ -10,8 +10,9 @@ Personal Ansible build based on Debian 13 with preinstalled packages: <br>
 `openssh-client`<br>
 `rsyslog`
 ## ansible-ssh
-Debian + SSH + Ansible container with opened 22/tcp port for SSH-connections<br>
-The container starts and runs as root
+Debian-based container with SSH and Ansible preinstalled.  
+Exposes port 22/tcp for SSH connections.  
+The container starts and runs as root.
 
 ## Build
 ```bash
