@@ -1,0 +1,10 @@
+services:
+  ansible:
+    image: avidei/ansible-ssh:latest
+    ports:
+      - "2222:22"
+    volumes:
+      - ./playbooks:/ansible/playbooks
+      - ./inventory:/ansible/inventory
+      - ./ssh:/root/.ssh
+    restart: unless-stopped
