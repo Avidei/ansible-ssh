@@ -14,6 +14,7 @@ Debian-based container with SSH and Ansible preinstalled.
 Exposes port 22/tcp for SSH connections.  
 The container starts and runs as root.
 <br>
+<br>
 You can use it for testing or learning purposes
 
 ## ⚙️ Build
