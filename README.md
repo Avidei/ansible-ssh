@@ -24,7 +24,7 @@ docker build -t avidei/ansible-ssh:latest . && \
 docker run -d -p 2222:22 --name ansible-ssh avidei/ansible-ssh:latest
 ```
 
-## Deploy
+## 🚀 Deploy with Docker Compose
 
 ```bash
 git clone https://github.com/Avidei/ansible-ssh.git
@@ -35,7 +35,18 @@ cd ansible-ssh
 docker compose up -d
 ```
 
-## Сredentials for SSH connection (port 2222)
-`username` : avidei<br>
-`password` : avidei
+---
+
+## 🔐 Credentials for SSH connection (port 2222)
+
+| Field        | Value    |
+| ------------ | -------- |
+| **Username** | `avidei` |
+| **Password** | `avidei` |
+
+Connect via:
+
+```bash
+ssh avidei@localhost -p 2222
+```
 
