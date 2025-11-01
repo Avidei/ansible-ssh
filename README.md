@@ -1,4 +1,4 @@
-## Description 
+## 🧩 Description
 Personal Ansible build based on Debian 13 with preinstalled packages: <br>
 <br>
 `curl`<br> 
@@ -9,7 +9,7 @@ Personal Ansible build based on Debian 13 with preinstalled packages: <br>
 `openssh-server`<br>
 `openssh-client`<br>
 `rsyslog`
-## ansible-ssh
+## 🐧 ansible-ssh
 Debian-based container with SSH and Ansible preinstalled.  
 Exposes port 22/tcp for SSH connections.  
 The container starts and runs as root.
