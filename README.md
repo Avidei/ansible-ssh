@@ -15,5 +15,12 @@ The container starts and runs as root
 ## Сredentials for SSH connection
 `username` : avidei<br>
 `password` : avidei
+## Install
+```bash
+git clone https://github.com/Avidei/ansible-ssh.git
+cd ansible-ssh
+
+docker build -t avidei/ansible-ssh:latest . && \
+docker run -d -p 2222:22 --name ansible-ssh avidei/ansible-ssh:latest
 
 
