@@ -41,7 +41,7 @@ RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/
 # Opened port 22 for SSH (FYI)
 EXPOSE 22/tcp
 
-# Start rsyslog daemoт for collecting and storing logs
+# Start rsyslog daemon for collecting and storing logs
 # and SSH server when the container launches (in the background)
 
 CMD ["/bin/bash", "-c", "rsyslogd && /usr/sbin/sshd -D"]
