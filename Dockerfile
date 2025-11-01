@@ -18,6 +18,10 @@ RUN apt-get update && apt-get install -y \
     openssh-client\
     rsyslog
 
+
+# edit sshd_config: comment out the AcceptEnv line
+RUN sed -i 's/^AcceptEnv/#AcceptEnv/' /etc/ssh/sshd_config
+
 # Redirecting rsyslog to stdout
 RUN sed -i '/imklog/s/^/#/' /etc/rsyslog.conf && \
     echo '*.* /dev/stdout' > /etc/rsyslog.d/50-default.conf
@@ -25,6 +29,7 @@ RUN sed -i '/imklog/s/^/#/' /etc/rsyslog.conf && \
 # Setting access rights for SSH service directory
 
 RUN chmod 700 /var/run/sshd
+
 
 # Create user with home directory
 RUN useradd -m -s /bin/bash avidei && \
@@ -42,4 +47,3 @@ EXPOSE 22/tcp
 # and SSH server when the container launches (in the background)
 
 CMD ["/bin/bash", "-c", "rsyslogd && /usr/sbin/sshd -D"]
-
