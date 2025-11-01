@@ -13,7 +13,7 @@ Personal Ansible build based on Debian 13 with preinstalled packages: <br>
 Debian + SSH + Ansible container with opened 22/tcp port for SSH-connections<br>
 The container starts and runs as root
 
-## Install
+## Build
 ```bash
 git clone https://github.com/Avidei/ansible-ssh.git
 cd ansible-ssh
