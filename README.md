@@ -1,12 +1,12 @@
 ## Description 
-Personal Ansible build based on Debian 13 with preinstalled packages: 
+Personal Ansible build based on Debian 13 with preinstalled packages: <br>
 `curl`<br> 
-`git`
-`nano`
-`python3` 
-`ansible`
-`openssh-server`
-`openssh-client`
+`git`<br>
+`nano`<br>
+`python3` <br>
+`ansible`<br>
+`openssh-server`<br>
+`openssh-client`<br>
 `rsyslog`
 ## ansible-ssh
 Debian + SSH + Ansible container with opened 22/tcp port for SSH-connections<br>
