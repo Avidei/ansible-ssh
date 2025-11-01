@@ -1,5 +1,5 @@
 ## Description 
-Personal Ansible build based on Debian 13 with preinstalled packages: <br>
+Personal Ansible build based on Debian 13 with preinstalled packages: 
 `curl`<br> 
 `git`
 `nano`
