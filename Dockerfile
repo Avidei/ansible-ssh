@@ -1,10 +1,10 @@
-# Using Debian 13 (Trixie Backports)
-FROM debian:trixie-backports
+# Using Debian 13 (Unstable)
+FROM debian:unstable
 
 # Metadata
 LABEL maintainer="avidei"
 LABEL version="1.0"
-LABEL description="Debian + SSH + Ansible container patched for CVE-2025-43859"
+LABEL description="Debian + SSH + Ansible container patched for CVE-2025-59375 & CVE-2025-43859"
 
 # Install core packages
 RUN apt-get update && apt-get install -y \
