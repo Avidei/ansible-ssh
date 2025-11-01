@@ -25,6 +25,9 @@ RUN apt-get update && apt-get install -y \
 RUN ln -sf /usr/bin/python3.13 /usr/bin/python && \
     ln -sf /usr/bin/pip3 /usr/bin/pip 
 
+# CVE-2025-43859
+RUN python3.13 -m pip install --no-cache-dir --upgrade "h11>=0.16.0" --break-system-packages
+
 # edit sshd_config: comment out the AcceptEnv line
 RUN sed -i 's/^AcceptEnv/#AcceptEnv/' /etc/ssh/sshd_config
 
