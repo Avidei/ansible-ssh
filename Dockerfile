@@ -10,7 +10,7 @@ LABEL description="Debian + SSH + Ansible container patched for CVE-2025-59375 &
 RUN apt-get update && apt-get install -y \
     curl \
     git \
-    nano \
+    tree \
     python3 \
     python3-venv \
     python3-pip \
