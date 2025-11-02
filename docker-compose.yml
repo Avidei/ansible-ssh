@@ -4,7 +4,7 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ./playbooks:/ansible/playbooks
-      - ./inventory:/ansible/inventory
-      - ./ssh:/root/.ssh
+      - ./ansible:/ansible
+      - ./ssh:/home/avidei/.ssh
     restart: unless-stopped
+
