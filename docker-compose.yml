@@ -6,4 +6,27 @@ services:
     volumes:
       - ./ansible:/ansible/
       - ./ssh:/home/avidei/.ssh
+    command:
+      [
+        "/bin/bash",
+        "-c",
+        "set -e &&
+        mkdir -p /ansible/{inventory,playbooks,roles,files,templates} &&
+        if [ ! -f /ansible/ansible.cfg ]; then
+          echo '[defaults]' > /ansible/ansible.cfg &&
+          echo 'inventory = ./inventory/hosts.ini' >> /ansible/ansible.cfg &&
+          echo 'roles_path = ./roles' >> /ansible/ansible.cfg &&
+          echo 'host_key_checking = False' >> /ansible/ansible.cfg &&
+          echo 'interpreter_python = auto_silent' >> /ansible/ansible.cfg &&
+          echo 'deprecation_warnings = False' >> /ansible/ansible.cfg;
+        fi &&
+        if [ ! -f /ansible/inventory/hosts.ini ]; then
+          echo '[local]' > /ansible/inventory/hosts.ini &&
+          echo 'localhost ansible_connection=local' >> /ansible/inventory/hosts.ini;
+        fi &&
+        chown -R 1000:1000 /ansible &&
+        echo '✅ Ansible environment ready' &&
+        rsyslogd &&
+        /usr/sbin/sshd -D",
+      ]
     restart: unless-stopped
