@@ -4,27 +4,30 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ./ansible:/ansible/
-      - ./ssh:/home/avidei/.ssh
+      - /mnt/nfs-shares/ansible/ansible:/home/avidei/.ansible
+      - /mnt/nfs-shares/ansible/ssh:/home/avidei/.ssh
+    environment:
+      ANSIBLE_DIR: /home/avidei/.ansible
+      
     command:
-      [
+      [      
         "/bin/bash",
         "-c",
-        "set -e &&
-        mkdir -p /ansible/{inventory,playbooks,roles,files,templates} &&
-        if [ ! -f /ansible/ansible.cfg ]; then
-          echo '[defaults]' > /ansible/ansible.cfg &&
-          echo 'inventory = ./inventory/hosts.ini' >> /ansible/ansible.cfg &&
-          echo 'roles_path = ./roles' >> /ansible/ansible.cfg &&
-          echo 'host_key_checking = False' >> /ansible/ansible.cfg &&
-          echo 'interpreter_python = auto_silent' >> /ansible/ansible.cfg &&
-          echo 'deprecation_warnings = False' >> /ansible/ansible.cfg;
+        "set -e && 
+
+        mkdir -p $$ANSIBLE_DIR/{inventory,playbooks,roles,files,templates} &&
+        if [ ! -f $$ANSIBLE_DIR/ansible.cfg ]; then
+          echo '[defaults]' > $$ANSIBLE_DIR/ansible.cfg &&
+          echo 'inventory = ./inventory/hosts.yml' >> $$ANSIBLE_DIR/ansible.cfg &&
+          echo 'roles_path = ./roles' >> $$ANSIBLE_DIR/ansible.cfg &&
+          echo 'host_key_checking = False' >> $$ANSIBLE_DIR/ansible.cfg &&
+          echo 'interpreter_python = auto_silent' >> $$ANSIBLE_DIR/ansible.cfg &&
+          echo 'deprecation_warnings = False' >> $$ANSIBLE_DIR/ansible.cfg;
         fi &&
-        if [ ! -f /ansible/inventory/hosts.ini ]; then
-          echo '[local]' > /ansible/inventory/hosts.ini &&
-          echo 'localhost ansible_connection=local' >> /ansible/inventory/hosts.ini;
+        if [ ! -f $$ANSIBLE_DIR/inventory/hosts.yml ]; then
+          touch $$ANSIBLE_DIR/inventory/hosts.yml;
         fi &&
-        chown -R 1000:1000 /ansible &&
+        chown -R 1000:1000 /home/avidei/.ansible &&
         echo '✅ Ansible environment ready' &&
         rsyslogd &&
         /usr/sbin/sshd -D",
