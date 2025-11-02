@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y \
     python3-venv \
     python3-pip \    
     ansible \
-    ansible-pylibssh \
     sshpass \
     openssh-server \
     openssh-client \
