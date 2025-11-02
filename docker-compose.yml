@@ -4,8 +4,8 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - /mnt/nfs-shares/ansible/ansible:/ansible/
-      - /mnt/nfs-shares/ansible/ssh:/home/avidei/.ssh
+      - ./ansible:/ansible/
+      - ./ssh:/home/avidei/.ssh
     command: ["/bin/bash","-c","mkdir -p /ansible/
     {inventory,playbooks,roles} && if [ ! -f /ansible/
     ansible.cfg ]; then echo '[defaults]' > /ansible/
