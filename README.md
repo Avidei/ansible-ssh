@@ -63,7 +63,7 @@ ssh avidei@localhost -p 2222
 It's recommended to create a dedicated Python virtual environment for the Ansible user.
 
 ```bash
-python -m venv /home/ansible/.ansible
-source /home/ansible/.ansible/bin/activate
+python -m venv /home/avidei/.ansible
+source /home/avidei/.ansible/bin/activate
 ```
 
