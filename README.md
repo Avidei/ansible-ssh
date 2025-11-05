@@ -58,3 +58,12 @@ Connect via:
 ssh avidei@localhost -p 2222
 ```
 
+### 🐍 Optional: Create Virtual Environment
+
+It's recommended to create a dedicated Python virtual environment for the Ansible user.
+
+```bash
+python -m venv /home/ansible/.ansible
+source /home/ansible/.ansible/bin/activate
+```
+
